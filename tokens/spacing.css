@@ -1,0 +1,28 @@
+/* fig-tokens.css defines space/radius as unitless FLOATs (Figma Variables are
+   dimensionless). These px aliases make them directly usable in `padding`,
+   `gap`, `border-radius` without a calc() at every call site. */
+:root {
+  --space-xxs-px: calc(var(--space-xxs) * 1px); /* 4px */
+  --space-xs-px: calc(var(--space-xs) * 1px);   /* 8px */
+  --space-sm-px: calc(var(--space-sm) * 1px);   /* 12px */
+  --space-md-px: calc(var(--space-md) * 1px);   /* 16px */
+  --space-lg-px: calc(var(--space-lg) * 1px);   /* 24px */
+  --space-xl-px: calc(var(--space-xl) * 1px);   /* 32px */
+  --space-xxl-px: calc(var(--space-xxl) * 1px); /* 48px */
+
+  --radius-sm-px: calc(var(--radius-sm) * 1px);     /* 4px */
+  --radius-base-px: calc(var(--radius-base) * 1px); /* 8px */
+  --radius-card-px: calc(var(--radius-card) * 1px); /* 16px */
+  --radius-pill-px: calc(var(--radius-pill) * 1px); /* 999px */
+
+  /* Component-specific radii observed directly in the source (not on the
+     spacing scale — copied verbatim, do not snap to the grid above) */
+  --radius-btn-sm: 9px;
+  --radius-btn-md: 12px;
+  --radius-btn-lg: 14px;
+  --radius-input: 10px;
+  --radius-alert: 14px;
+
+  --shadow-card: 0px 6px 16px 0px rgba(7,15,38,0.1);
+  --shadow-focus-ring: 0px 0px 0px 3px rgba(0,114,188,0.18);
+}

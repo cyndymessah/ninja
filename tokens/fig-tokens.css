@@ -1,0 +1,90 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --bg-container: var(--core-white); /* @kind color */
+  --bg-elevated: var(--core-white); /* @kind color */
+  --bg-feature: var(--core-navy-smart); /* @kind color */
+  --bg-layout: rgb(242,244,247); /* @kind color */
+  --border-default: rgb(225,229,234); /* @kind color */
+  --border-secondary: rgb(238,241,244); /* @kind color */
+  --color-link: var(--core-blue-150); /* @kind color */
+  --color-primary-active: rgb(0,64,103); /* @kind color */
+  --color-primary-bg: rgb(230,241,250); /* @kind color */
+  --color-primary-hover: var(--core-blue-150); /* @kind color */
+  --color-primary: var(--core-blue-future); /* @kind color */
+  --core-blue-150: rgb(0,91,150); /* @kind color */
+  --core-blue-50: rgb(25,163,252); /* @kind color */
+  --core-blue-dark-bg: rgb(16,41,74); /* @kind color */
+  --core-blue-future: rgb(0,114,188); /* @kind color */
+  --core-blue-hover-dark: rgb(77,184,253); /* @kind color */
+  --core-gray-100: rgb(148,148,148); /* @kind color */
+  --core-gray-50: rgb(232,232,232); /* @kind color */
+  --core-gray-text: rgb(46,64,77); /* @kind color */
+  --core-green-150: rgb(6,137,65); /* @kind color */
+  --core-green-light: rgb(56,249,144); /* @kind color */
+  --core-green: rgb(0,203,93); /* @kind color */
+  --core-navy-smart: rgb(7,15,38); /* @kind color */
+  --core-orange-100: rgb(228,38,0); /* @kind color */
+  --core-orange-150: rgb(178,32,0); /* @kind color */
+  --core-orange-light: rgb(255,106,77); /* @kind color */
+  --core-orange: rgb(255,122,0); /* @kind color */
+  --core-turquoise: rgb(0,223,237); /* @kind color */
+  --core-white: rgb(255,255,255); /* @kind color */
+  --core-yellow: rgb(255,196,0); /* @kind color */
+  --on-feature: var(--core-white); /* @kind color */
+  --on-primary: var(--core-white); /* @kind color */
+  --radius-base: 8;
+  --radius-card: 16;
+  --radius-pill: 999;
+  --radius-sm: 4;
+  --space-lg: 24;
+  --space-md: 16;
+  --space-sm: 12;
+  --space-xl: 32;
+  --space-xs: 8;
+  --space-xxl: 48;
+  --space-xxs: 4;
+  --status-error-bg: rgb(252,234,230); /* @kind color */
+  --status-error: var(--core-orange-100); /* @kind color */
+  --status-info-bg: rgb(230,241,250); /* @kind color */
+  --status-info: var(--core-blue-future); /* @kind color */
+  --status-success-bg: rgb(231,248,239); /* @kind color */
+  --status-success: var(--core-green-150); /* @kind color */
+  --status-warning-bg: rgb(255,241,230); /* @kind color */
+  --status-warning: var(--core-orange); /* @kind color */
+  --text-body: var(--core-gray-text); /* @kind color */
+  --text-disabled: rgb(184,190,198); /* @kind color */
+  --text-heading: rgb(46,64,77); /* @kind color */ /* #2e404d */
+  --text-muted: var(--core-gray-100); /* @kind color */
+  --text-secondary: rgb(90,102,114); /* @kind color */
+}
+
+:root[data-theme="dark"], .dark {
+  --bg-container: rgb(14,26,51); /* @kind color */
+  --bg-elevated: rgb(20,33,61); /* @kind color */
+  --bg-feature: var(--core-navy-smart); /* @kind color */
+  --bg-layout: var(--core-navy-smart); /* @kind color */
+  --border-default: rgba(255,255,255,0.16); /* @kind color */
+  --border-secondary: rgba(255,255,255,0.08); /* @kind color */
+  --color-link: var(--core-blue-50); /* @kind color */
+  --color-primary-active: var(--core-blue-future); /* @kind color */
+  --color-primary-bg: var(--core-blue-dark-bg); /* @kind color */
+  --color-primary-hover: var(--core-blue-hover-dark); /* @kind color */
+  --color-primary: var(--core-blue-50); /* @kind color */
+  --on-feature: var(--core-white); /* @kind color */
+  --on-primary: var(--core-navy-smart); /* @kind color */
+  --status-error-bg: rgb(46,18,16); /* @kind color */
+  --status-error: var(--core-orange-light); /* @kind color */
+  --status-info-bg: var(--core-blue-dark-bg); /* @kind color */
+  --status-info: var(--core-blue-50); /* @kind color */
+  --status-success-bg: rgb(12,42,30); /* @kind color */
+  --status-success: var(--core-green-light); /* @kind color */
+  --status-warning-bg: rgb(46,28,10); /* @kind color */
+  --status-warning: rgb(255,158,68); /* @kind color */
+  --text-body: var(--core-gray-50); /* @kind color */
+  --text-disabled: rgb(86,96,114); /* @kind color */
+  --text-heading: var(--core-white); /* @kind color */
+  --text-muted: rgb(126,136,150); /* @kind color */
+  --text-secondary: rgb(174,182,194); /* @kind color */
+}

@@ -1,0 +1,40 @@
+/* Type scale — verbatim from the Figma "03 — Typography Scale" specimen.
+   Values are exact transcriptions (30/38, 24/32, 20/28, 16/24, 14/22, 12/20) —
+   do not round to a generic 4/8px scale. */
+:root {
+  --text-heading-1-family: var(--font-display);
+  --text-heading-1-size: 30px;
+  --text-heading-1-line: 38px;
+  --text-heading-1-weight: 600;
+
+  --text-heading-2-family: var(--font-display);
+  --text-heading-2-size: 24px;
+  --text-heading-2-line: 32px;
+  --text-heading-2-weight: 600;
+
+  --text-heading-3-family: var(--font-sans);
+  --text-heading-3-size: 20px;
+  --text-heading-3-line: 28px;
+  --text-heading-3-weight: 600;
+
+  --text-body-lg-family: var(--font-sans);
+  --text-body-lg-size: 16px;
+  --text-body-lg-line: 24px;
+  --text-body-lg-weight: 400;
+
+  --text-body-family: var(--font-sans);
+  --text-body-size: 14px;
+  --text-body-line: 22px;
+  --text-body-weight: 400;
+
+  --text-caption-family: var(--font-sans);
+  --text-caption-size: 12px;
+  --text-caption-line: 20px;
+  --text-caption-weight: 500;
+
+  /* Additional sizes seen repeatedly across components (buttons, tags, labels) */
+  --text-button-sm-size: 13px;
+  --text-button-md-size: 14px;
+  --text-button-lg-size: 15px;
+  --text-eyebrow-size: 12px; /* Inter, used for meta/eyebrow labels */
+}

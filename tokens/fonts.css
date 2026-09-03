@@ -1,0 +1,13 @@
+/* Ninja / NDPS Design System — webfonts
+   Source Figma defines three families: Noto Serif (display headings),
+   Noto Sans (UI/body — incl. a "Display" optical variant at larger sizes),
+   and Inter (small meta/eyebrow labels, 12px).
+   No font binaries were attached with the .fig — loading the exact same
+   families from Google Fonts (weights actually used: 400/500/600/700). */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&family=Noto+Sans:wght@400;500;600;700&family=Inter:wght@400;700&display=swap');
+
+:root {
+  --font-display: "Noto Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-meta: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}

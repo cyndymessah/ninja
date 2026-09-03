@@ -1,0 +1,42 @@
+/* Plain-HTML counterpart to <Icon>. Same Finicon data, no framework.
+   Usage:  <span class="ico" data-icon="dashboard"></span>
+   In JS:  el.innerHTML = ICONS.approve
+   Size and color come from CSS on the .ico span (default 20px, currentColor). */
+(function () {
+  var VIEWBOX = "0 0 24 24";
+  var BODY = {
+    alert: '<path d="M12 14V7M12 18H12.01M22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>',
+    approve: '<path d="M4 11.4L10 18L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    back: '<path d="M19 12H5M11 6L5 12L11 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    calendar: '<path d="M18 5H19C19.5304 5 20.0391 5.21071 20.4142 5.58579C20.7893 5.96086 21 6.46957 21 7V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V7C3 6.46957 3.21071 5.96086 3.58579 5.58579C3.96086 5.21071 4.46957 5 5 5H6M9 3V6M15 3V6M4 10H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    companies: '<path d="M3 20.9999H21M5 20.9999L5.077 6.82593C5.08139 6.40768 5.21845 6.00162 5.46844 5.66626C5.71842 5.33091 6.06842 5.08359 6.468 4.95993L12.392 3.09593C13.682 2.68893 15 3.63793 15 4.97293V20.9999M8 10.6509H12M8 14.5939H12M19 20.9999V11.1439C19 10.5239 18.704 9.93893 18.2 9.56693L15 7.20193" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    dashboard: '<path d="M19.071 20C20.0006 19.0782 20.7381 17.9811 21.2409 16.7724C21.7436 15.5636 22.0016 14.2671 22 12.958C22 7.458 17.523 3 12 3C6.47701 3 2.00001 7.459 2.00001 12.958C1.99837 14.2671 2.2564 15.5636 2.75916 16.7724C3.26192 17.9811 3.99943 19.0782 4.92901 20M12 3.474V5.371M19.07 6.861L17.589 8.055M20.82 14.491L18.964 14.065M3.18001 14.49L5.03601 14.064M4.93001 6.86L6.41001 8.054M15 10.482C15 10.482 13.462 14.799 12.731 15.552C12.3794 15.914 11.8988 16.1222 11.3942 16.131C10.8896 16.1398 10.402 15.9485 10.038 15.599C9.85802 15.4265 9.71395 15.22 9.6141 14.9915C9.51426 14.7631 9.4606 14.5171 9.45623 14.2678C9.45187 14.0185 9.49687 13.7708 9.58865 13.539C9.68043 13.3071 9.81718 13.0957 9.99101 12.917C10.721 12.163 15 10.482 15 10.482Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    disbursement: '<path d="M16 5.5L20 9.5H6M8 18.5L4 14.5H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    export: '<path d="M3 16L4.406 18.11C4.5887 18.3838 4.83616 18.6083 5.12643 18.7636C5.41671 18.9188 5.74082 19 6.07 19H17.93C18.2592 19 18.5833 18.9188 18.8736 18.7636C19.1638 18.6083 19.4113 18.3838 19.594 18.11L21 16M12 15V5M9 8L12 5L15 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    menu: '<path d="M20 19H4M14.5 12H4M20 5H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    refresh: '<path d="M5.285 4.27007C4.313 5.16707 3.525 6.25007 2.963 7.45707C1.82859 9.90225 1.69087 12.6931 2.579 15.2381C3.01601 16.494 3.69441 17.6524 4.576 18.6481C5.45043 19.6364 6.51183 20.4419 7.699 21.0181C8.87894 21.5902 10.1617 21.9196 11.4713 21.987C12.7808 22.0543 14.0906 21.8581 15.323 21.4101L12.59 18.6201M18.715 19.7301C19.687 18.8331 20.475 17.7501 21.037 16.5431C22.1714 14.0979 22.3091 11.3071 21.421 8.76207C20.984 7.50609 20.3056 6.34768 19.424 5.35207C18.5496 4.36375 17.4882 3.55827 16.301 2.98207C15.1211 2.40998 13.8383 2.08051 12.5287 2.01317C11.2192 1.94584 9.90939 2.14201 8.677 2.59007L11.383 5.35207" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    reject: '<path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    report: '<path d="M14.944 21V4C14.944 3.73478 14.8386 3.48043 14.6511 3.29289C14.4636 3.10536 14.2092 3 13.944 3H9.885C9.61978 3 9.36543 3.10536 9.17789 3.29289C8.99036 3.48043 8.885 3.73478 8.885 4V21M14.944 21L14.942 10.79C14.942 10.5248 15.0474 10.2704 15.2349 10.0829C15.4224 9.89536 15.6768 9.79 15.942 9.79H20C20.2652 9.79 20.5196 9.89536 20.7071 10.0829C20.8946 10.2704 21 10.5248 21 10.79V20C21 20.2652 20.8946 20.5196 20.7071 20.7071C20.5196 20.8946 20.2652 21 20 21H14.944ZM14.944 21H8.885M8.885 21V16.058C8.885 15.7928 8.77964 15.5384 8.59211 15.3509C8.40457 15.1634 8.15022 15.058 7.885 15.058H4C3.73478 15.058 3.48043 15.1634 3.29289 15.3509C3.10536 15.5384 3 15.7928 3 16.058V20C3 20.2652 3.10536 20.5196 3.29289 20.7071C3.48043 20.8946 3.73478 21 4 21H8.885Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    requests: '<path d="M6 11H8M6 7H10M18 12H20C20.2652 12 20.5196 12.1054 20.7071 12.2929C20.8946 12.4804 21 12.7348 21 13V20C21 20.2652 20.8946 20.5196 20.7071 20.7071C20.5196 20.8946 20.2652 21 20 21H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M13 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H13C14.1046 21 15 20.1046 15 19V5C15 3.89543 14.1046 3 13 3Z" stroke="currentColor" stroke-width="2"></path>',
+    rupee: '<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 8H15M8 10.778H15M12.958 18L8 13.556H9.75C13.64 13.556 13.64 8 9.75 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    search: '<path d="M19 19L21 21M19 11C19 13.1217 18.1571 15.1566 16.6569 16.6569C15.1566 18.1571 13.1217 19 11 19C8.87827 19 6.84344 18.1571 5.34315 16.6569C3.84285 15.1566 3 13.1217 3 11C3 8.87827 3.84285 6.84344 5.34315 5.34315C6.84344 3.84285 8.87827 3 11 3C13.1217 3 15.1566 3.84285 16.6569 5.34315C18.1571 6.84344 19 8.87827 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    trendDown: '<path d="M7.05 7.05005L16.95 16.95M8.465 16.95H16.95V8.46405" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    trend: '<path d="M7.05 16.95L16.95 7.05005M16.95 15.536V7.05005H8.464" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>',
+    users: '<path d="M12 9C13.6569 9 15 7.65685 15 6C15 4.34315 13.6569 3 12 3C10.3431 3 9 4.34315 9 6C9 7.65685 10.3431 9 12 9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M18.5 12C19.3284 12 20 11.3284 20 10.5C20 9.67157 19.3284 9 18.5 9C17.6716 9 17 9.67157 17 10.5C17 11.3284 17.6716 12 18.5 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M5.5 12C6.32843 12 7 11.3284 7 10.5C7 9.67157 6.32843 9 5.5 9C4.67157 9 4 9.67157 4 10.5C4 11.3284 4.67157 12 5.5 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 21V16C8 14.9391 8.42143 13.9217 9.17157 13.1716C9.92172 12.4214 10.9391 12 12 12C13.0609 12 14.0783 12.4214 14.8284 13.1716C15.5786 13.9217 16 14.9391 16 16V21M5 15C4.73478 15 4.48043 15.1054 4.29289 15.2929C4.10536 15.4804 4 15.7348 4 16V21M19 15C19.2652 15 19.5196 15.1054 19.7071 15.2929C19.8946 15.4804 20 15.7348 20 16V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>'
+  };
+  BODY.people = BODY.users;
+
+  var ICONS = {};
+  Object.keys(BODY).forEach(function (k) {
+    ICONS[k] = '<svg width="100%" height="100%" viewBox="' + VIEWBOX + '" fill="none" aria-hidden="true">' + BODY[k] + '</svg>';
+  });
+
+  window.ICONS = ICONS;
+  window.hydrateIcons = function (root) {
+    (root || document).querySelectorAll("[data-icon]").forEach(function (el) {
+      var svg = ICONS[el.getAttribute("data-icon")];
+      if (svg && !el.firstElementChild) el.innerHTML = svg;
+    });
+  };
+  document.addEventListener("DOMContentLoaded", function () { window.hydrateIcons(document); });
+})();
