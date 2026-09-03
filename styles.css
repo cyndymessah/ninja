@@ -1,0 +1,7 @@
+/* NDPS Design System — global CSS entry point. Import-only; no inline rules. */
+@import './tokens/fonts.css';
+@import './tokens/fig-tokens.css';
+@import './tokens/fig-typography.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './icons/icons.css';
