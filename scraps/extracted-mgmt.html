@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add company — EWA platform</title>
+<style>/* NDPS Design System — global CSS entry point. Import-only; no inline rules. */
+/* Ninja / NDPS Design System — webfonts
+   Source Figma defines three families: Noto Serif (display headings),
+   Noto Sans (UI/body — incl. a "Display" optical variant at larger sizes),
+   and Inter (small meta/eyebrow labels, 12px).
+   No font binaries were attached with the .fig — loading the exact same
+   families from Google Fonts (weights actually used: 400/500/600/700). */
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("b38100ff-9fbb-4757-ba8d-6da6fc736ecb") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("7c084b0e-406e-4e8a-832a-7c27307131a5") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("2ea79b49-3a54-4ccd-870c-e627acb5fb08") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("8b32dc9b-53ac-4c22-9de1-6e3334236378") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("d296ae2f-ee2d-4d8c-ab3c-004a24a94ef2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("56c7935b-8ac7-4c52-9bd0-2295a043c8a2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("77595fc0-f714-4ddf-b1e4-d2102b8fc2bf") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("b38100ff-9fbb-4757-ba8d-6da6fc736ecb") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("7c084b0e-406e-4e8a-832a-7c27307131a5") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("2ea79b49-3a54-4ccd-870c-e627acb5fb08") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("8b32dc9b-53ac-4c22-9de1-6e3334236378") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("d296ae2f-ee2d-4d8c-ab3c-004a24a94ef2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("56c7935b-8ac7-4c52-9bd0-2295a043c8a2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("77595fc0-f714-4ddf-b1e4-d2102b8fc2bf") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9066bd73-ba5b-4769-9516-9ea3a8e202fc") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("a7036a4d-8503-4c38-93e2-db11530caeda") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("7590c4db-88bc-4df9-9b8a-113b0049b3e6") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("2cef8c53-54f3-4f38-a232-96aa488c7997") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("42d13f00-1fdf-4c1c-a611-fa56222dcc02") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("23848a4f-2690-4d0a-9a33-ec4400dc5196") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("33046801-ac18-4606-ae29-676a3a7f7b5d") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("eb818d53-4954-484d-8d2e-b41af8419da6") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9066bd73-ba5b-4769-9516-9ea3a8e202fc") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("a7036a4d-8503-4c38-93e2-db11530caeda") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("7590c4db-88bc-4df9-9b8a-113b0049b3e6") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("2cef8c53-54f3-4f38-a232-96aa488c7997") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("42d13f00-1fdf-4c1c-a611-fa56222dcc02") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("23848a4f-2690-4d0a-9a33-ec4400dc5196") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("33046801-ac18-4606-ae29-676a3a7f7b5d") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("eb818d53-4954-484d-8d2e-b41af8419da6") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9066bd73-ba5b-4769-9516-9ea3a8e202fc") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("a7036a4d-8503-4c38-93e2-db11530caeda") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("7590c4db-88bc-4df9-9b8a-113b0049b3e6") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("2cef8c53-54f3-4f38-a232-96aa488c7997") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("42d13f00-1fdf-4c1c-a611-fa56222dcc02") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("23848a4f-2690-4d0a-9a33-ec4400dc5196") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("33046801-ac18-4606-ae29-676a3a7f7b5d") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("eb818d53-4954-484d-8d2e-b41af8419da6") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9066bd73-ba5b-4769-9516-9ea3a8e202fc") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("a7036a4d-8503-4c38-93e2-db11530caeda") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("7590c4db-88bc-4df9-9b8a-113b0049b3e6") format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("2cef8c53-54f3-4f38-a232-96aa488c7997") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("42d13f00-1fdf-4c1c-a611-fa56222dcc02") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("23848a4f-2690-4d0a-9a33-ec4400dc5196") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("33046801-ac18-4606-ae29-676a3a7f7b5d") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("eb818d53-4954-484d-8d2e-b41af8419da6") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8d772c37-ad42-4898-ad8b-a5ee41abb25a") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("2e583b5d-f4de-428f-a00c-b1e042f5bc02") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("37a24d56-9b2c-47ad-a105-593bd0144ee8") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("c8292795-c783-4aea-a4ae-703bc7a537f8") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("363c3f0e-2d8c-4244-b9eb-ea878b7b9db3") format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("7b810693-bc25-44a8-a591-d40db179f304") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("56aab086-f5c6-4c94-98ab-deb99cd3786a") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("c0e6bdef-ed9e-4770-b704-f502e33ec82e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8d772c37-ad42-4898-ad8b-a5ee41abb25a") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("2e583b5d-f4de-428f-a00c-b1e042f5bc02") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("37a24d56-9b2c-47ad-a105-593bd0144ee8") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("c8292795-c783-4aea-a4ae-703bc7a537f8") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("363c3f0e-2d8c-4244-b9eb-ea878b7b9db3") format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("7b810693-bc25-44a8-a591-d40db179f304") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("56aab086-f5c6-4c94-98ab-deb99cd3786a") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("c0e6bdef-ed9e-4770-b704-f502e33ec82e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+:root {
+  --font-display: "Noto Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-meta: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --bg-container: var(--core-white); /* @kind color */
+  --bg-elevated: var(--core-white); /* @kind color */
+  --bg-feature: var(--core-navy-smart); /* @kind color */
+  --bg-layout: rgb(242,244,247); /* @kind color */
+  --border-default: rgb(225,229,234); /* @kind color */
+  --border-secondary: rgb(238,241,244); /* @kind color */
+  --color-link: var(--core-blue-150); /* @kind color */
+  --color-primary-active: rgb(0,64,103); /* @kind color */
+  --color-primary-bg: rgb(230,241,250); /* @kind color */
+  --color-primary-hover: var(--core-blue-150); /* @kind color */
+  --color-primary: var(--core-blue-future); /* @kind color */
+  --core-blue-150: rgb(0,91,150); /* @kind color */
+  --core-blue-50: rgb(25,163,252); /* @kind color */
+  --core-blue-dark-bg: rgb(16,41,74); /* @kind color */
+  --core-blue-future: rgb(0,114,188); /* @kind color */
+  --core-blue-hover-dark: rgb(77,184,253); /* @kind color */
+  --core-gray-100: rgb(148,148,148); /* @kind color */
+  --core-gray-50: rgb(232,232,232); /* @kind color */
+  --core-gray-text: rgb(46,64,77); /* @kind color */
+  --core-green-150: rgb(6,137,65); /* @kind color */
+  --core-green-light: rgb(56,249,144); /* @kind color */
+  --core-green: rgb(0,203,93); /* @kind color */
+  --core-navy-smart: rgb(7,15,38); /* @kind color */
+  --core-orange-100: rgb(228,38,0); /* @kind color */
+  --core-orange-150: rgb(178,32,0); /* @kind color */
+  --core-orange-light: rgb(255,106,77); /* @kind color */
+  --core-orange: rgb(255,122,0); /* @kind color */
+  --core-turquoise: rgb(0,223,237); /* @kind color */
+  --core-white: rgb(255,255,255); /* @kind color */
+  --core-yellow: rgb(255,196,0); /* @kind color */
+  --on-feature: var(--core-white); /* @kind color */
+  --on-primary: var(--core-white); /* @kind color */
+  --radius-base: 8;
+  --radius-card: 16;
+  --radius-pill: 999;
+  --radius-sm: 4;
+  --space-lg: 24;
+  --space-md: 16;
+  --space-sm: 12;
+  --space-xl: 32;
+  --space-xs: 8;
+  --space-xxl: 48;
+  --space-xxs: 4;
+  --status-error-bg: rgb(252,234,230); /* @kind color */
+  --status-error: var(--core-orange-100); /* @kind color */
+  --status-info-bg: rgb(230,241,250); /* @kind color */
+  --status-info: var(--core-blue-future); /* @kind color */
+  --status-success-bg: rgb(231,248,239); /* @kind color */
+  --status-success: var(--core-green-150); /* @kind color */
+  --status-warning-bg: rgb(255,241,230); /* @kind color */
+  --status-warning: var(--core-orange); /* @kind color */
+  --text-body: var(--core-gray-text); /* @kind color */
+  --text-disabled: rgb(184,190,198); /* @kind color */
+  --text-heading: var(--core-navy-smart); /* @kind color */
+  --text-muted: var(--core-gray-100); /* @kind color */
+  --text-secondary: rgb(90,102,114); /* @kind color */
+}
+
+:root[data-theme="dark"], .dark {
+  --bg-container: rgb(14,26,51); /* @kind color */
+  --bg-elevated: rgb(20,33,61); /* @kind color */
+  --bg-feature: var(--core-navy-smart); /* @kind color */
+  --bg-layout: var(--core-navy-smart); /* @kind color */
+  --border-default: rgba(255,255,255,0.16); /* @kind color */
+  --border-secondary: rgba(255,255,255,0.08); /* @kind color */
+  --color-link: var(--core-blue-50); /* @kind color */
+  --color-primary-active: var(--core-blue-future); /* @kind color */
+  --color-primary-bg: var(--core-blue-dark-bg); /* @kind color */
+  --color-primary-hover: var(--core-blue-hover-dark); /* @kind color */
+  --color-primary: var(--core-blue-50); /* @kind color */
+  --on-feature: var(--core-white); /* @kind color */
+  --on-primary: var(--core-navy-smart); /* @kind color */
+  --status-error-bg: rgb(46,18,16); /* @kind color */
+  --status-error: var(--core-orange-light); /* @kind color */
+  --status-info-bg: var(--core-blue-dark-bg); /* @kind color */
+  --status-info: var(--core-blue-50); /* @kind color */
+  --status-success-bg: rgb(12,42,30); /* @kind color */
+  --status-success: var(--core-green-light); /* @kind color */
+  --status-warning-bg: rgb(46,28,10); /* @kind color */
+  --status-warning: rgb(255,158,68); /* @kind color */
+  --text-body: var(--core-gray-50); /* @kind color */
+  --text-disabled: rgb(86,96,114); /* @kind color */
+  --text-heading: var(--core-white); /* @kind color */
+  --text-muted: rgb(126,136,150); /* @kind color */
+  --text-secondary: rgb(174,182,194); /* @kind color */
+}
+
+/* No TEXT/EFFECT styles in this file. */
+
+/* Type scale — verbatim from the Figma "03 — Typography Scale" specimen.
+   Values are exact transcriptions (30/38, 24/32, 20/28, 16/24, 14/22, 12/20) —
+   do not round to a generic 4/8px scale. */
+:root {
+  --text-heading-1-family: var(--font-display);
+  --text-heading-1-size: 30px;
+  --text-heading-1-line: 38px;
+  --text-heading-1-weight: 600;
+
+  --text-heading-2-family: var(--font-display);
+  --text-heading-2-size: 24px;
+  --text-heading-2-line: 32px;
+  --text-heading-2-weight: 600;
+
+  --text-heading-3-family: var(--font-sans);
+  --text-heading-3-size: 20px;
+  --text-heading-3-line: 28px;
+  --text-heading-3-weight: 600;
+
+  --text-body-lg-family: var(--font-sans);
+  --text-body-lg-size: 16px;
+  --text-body-lg-line: 24px;
+  --text-body-lg-weight: 400;
+
+  --text-body-family: var(--font-sans);
+  --text-body-size: 14px;
+  --text-body-line: 22px;
+  --text-body-weight: 400;
+
+  --text-caption-family: var(--font-sans);
+  --text-caption-size: 12px;
+  --text-caption-line: 20px;
+  --text-caption-weight: 500;
+
+  /* Additional sizes seen repeatedly across components (buttons, tags, labels) */
+  --text-button-sm-size: 13px;
+  --text-button-md-size: 14px;
+  --text-button-lg-size: 15px;
+  --text-eyebrow-size: 12px; /* Inter, used for meta/eyebrow labels */
+}
+
+/* fig-tokens.css defines space/radius as unitless FLOATs (Figma Variables are
+   dimensionless). These px aliases make them directly usable in `padding`,
+   `gap`, `border-radius` without a calc() at every call site. */
+:root {
+  --space-xxs-px: calc(var(--space-xxs) * 1px); /* 4px */
+  --space-xs-px: calc(var(--space-xs) * 1px);   /* 8px */
+  --space-sm-px: calc(var(--space-sm) * 1px);   /* 12px */
+  --space-md-px: calc(var(--space-md) * 1px);   /* 16px */
+  --space-lg-px: calc(var(--space-lg) * 1px);   /* 24px */
+  --space-xl-px: calc(var(--space-xl) * 1px);   /* 32px */
+  --space-xxl-px: calc(var(--space-xxl) * 1px); /* 48px */
+
+  --radius-sm-px: calc(var(--radius-sm) * 1px);     /* 4px */
+  --radius-base-px: calc(var(--radius-base) * 1px); /* 8px */
+  --radius-card-px: calc(var(--radius-card) * 1px); /* 16px */
+  --radius-pill-px: calc(var(--radius-pill) * 1px); /* 999px */
+
+  /* Component-specific radii observed directly in the source (not on the
+     spacing scale — copied verbatim, do not snap to the grid above) */
+  --radius-btn-sm: 9px;
+  --radius-btn-md: 12px;
+  --radius-btn-lg: 14px;
+  --radius-input: 10px;
+  --radius-alert: 14px;
+
+  --shadow-card: 0px 6px 16px 0px rgba(7,15,38,0.1);
+  --shadow-focus-ring: 0px 0px 0px 3px rgba(0,114,188,0.18);
+}
+
+</style>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scrollbar-gutter: stable; overflow-y: scroll; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-layout);
+    color: var(--text-body);
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  /* --- App shell --- */
+  .app-shell { display: flex; min-height: 100vh; }
+  .sidebar {
+    width: 232px;
+    flex-shrink: 0;
+    background: var(--bg-feature);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 12px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: visible;
+    transition: width 0.2s ease;
+  }
+  .sidebar.collapsed { width: 72px; }
+  .sidebar-head { display: flex; align-items: center; position: relative; margin-bottom: 20px; }
+  .sidebar-logo {
+    font-family: var(--text-heading-2-family);
+    font-weight: 700;
+    font-size: 21px;
+    color: var(--on-feature);
+    padding: 0 10px;
+    white-space: nowrap;
+  }
+  .nav-toggle {
+    position: absolute;
+    top: 16px;
+    right: -12px;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--bg-feature);
+    border: none;
+    color: var(--on-primary);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.15s;
+  }
+  .nav-toggle:hover { background: var(--color-primary-hover); }
+  .nav-toggle svg { transition: transform 0.2s ease; }
+  .sidebar.collapsed .nav-toggle svg { transform: rotate(180deg); }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 12px;
+    border-radius: var(--radius-base-px);
+    color: rgba(255,255,255,0.72);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 4px;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-item svg { flex-shrink: 0; }
+  .nav-item:hover:not(.active) { background: rgba(255,255,255,0.08); color: #fff; }
+  .nav-item.active { background: var(--color-primary); color: var(--on-primary); }
+  .nav-label { transition: opacity 0.12s ease; opacity: 1; }
+  .sidebar.collapsed .nav-label { opacity: 0; width: 0; overflow: hidden; }
+  .sidebar.collapsed .sidebar-logo { opacity: 0; width: 0; padding: 0; overflow: hidden; }
+  .sidebar-footer { margin: auto -12px -20px -12px; display: flex; align-items: flex-end; opacity: 0.5; }
+  .sidebar-footer svg { width: 100%; height: auto; display: block; }
+  .main-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+  /* --- Top nav --- */
+  .topnav {
+    background: var(--bg-container);
+    box-shadow: inset 0 -1px 0 0 var(--border-default);
+    padding: 0 32px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topnav-brand { display: flex; align-items: center; gap: 8px; }
+  .brand-dot {
+    width: 28px; height: 28px;
+    background: var(--color-primary);
+    border-radius: var(--radius-sm-px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .brand-dot span { color: var(--on-primary); font-size: 13px; font-weight: 700; font-family: var(--font-display); }
+  .breadcrumb {
+    font-family: var(--font-meta);
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--color-primary); }
+  .breadcrumb .sep { color: var(--text-muted); }
+  .breadcrumb .current { color: var(--color-primary); font-weight: 700; }
+  .user-pill {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg-layout); border-radius: var(--radius-pill-px);
+    padding: 5px 12px 5px 5px;
+    font-family: var(--font-meta);
+    font-size: 12px; color: var(--text-secondary);
+  }
+  .user-avatar {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--color-primary); color: var(--on-primary);
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* --- Layout --- */
+  .page-wrap { max-width: 860px; margin: 32px auto; padding: 0 24px 80px; }
+
+  .page-title {
+    font-family: var(--text-heading-2-family);
+    font-size: var(--text-heading-2-size);
+    line-height: var(--text-heading-2-line);
+    font-weight: var(--text-heading-2-weight);
+    color: var(--text-heading);
+    margin-bottom: 4px;
+  }
+  .page-subtitle { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
+
+  /* --- Form legend --- */
+  .form-legend {
+    background: var(--status-info-bg);
+    box-shadow: inset 0 0 0 1px rgba(0,114,188,0.25);
+    border-radius: var(--radius-base-px);
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: var(--core-blue-150);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-legend svg { flex-shrink: 0; }
+
+  /* --- Section card --- */
+  .section-card {
+    background: var(--bg-elevated);
+    box-shadow: inset 0 0 0 1px var(--border-default);
+    border-radius: var(--radius-card-px);
+    margin-bottom: 20px;
+  }
+  .section-header {
+    padding: 16px 24px 12px;
+    box-shadow: inset 0 -1px 0 0 var(--border-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-icon {
+    width: 32px; height: 32px; border-radius: var(--radius-base-px);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: var(--text-heading-3-family);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+  .section-desc { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+  .section-body { padding: 20px 24px; }
+
+  /* --- Field grid --- */
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; margin-bottom: 16px; }
+  .field-row.single { grid-template-columns: 1fr; }
+  .field-row.thirds { grid-template-columns: 1fr 1fr 1fr; }
+
+  /* --- Field --- */
+  .field { display: flex; flex-direction: column; gap: 5px; }
+
+  .field-label {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--core-gray-text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .req-asterisk {
+    color: var(--status-error);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+  }
+  .badge-locked {
+    font-size: 10px;
+    background: var(--bg-layout);
+    color: var(--text-muted);
+    padding: 1px 8px 1px 6px;
+    border-radius: var(--radius-pill-px);
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  /* tooltip trigger */
+  .tooltip-trigger {
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: var(--color-primary-bg);
+    color: var(--color-primary);
+    font-size: 9px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: background 0.15s;
+  }
+  .tooltip-trigger:hover { background: var(--color-primary); color: var(--on-primary); }
+
+  .tooltip-wrap { position: relative; display: inline-flex; }
+  .tooltip-box {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--core-navy-smart);
+    color: var(--core-gray-50);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 6px 10px;
+    border-radius: var(--radius-base-px);
+    width: max-content;
+    max-width: 240px;
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 50;
+  }
+  .tooltip-wrap:hover .tooltip-box,
+  .tooltip-wrap:focus-within .tooltip-box,
+  .tooltip-box.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .tooltip-box::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--core-navy-smart);
+  }
+
+  /* inputs */
+  input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+    width: 100%;
+    height: 40px;
+    box-shadow: inset 0 0 0 1px var(--border-default);
+    border: none;
+    border-radius: var(--radius-input);
+    padding: 0 12px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--text-heading);
+    background: var(--bg-container);
+    outline: none;
+    transition: box-shadow 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  input::placeholder, textarea::placeholder { color: var(--text-muted); }
+  input:focus, select:focus, textarea:focus {
+    box-shadow: inset 0 0 0 1px var(--color-primary), var(--shadow-focus-ring);
+  }
+  input.error { box-shadow: inset 0 0 0 1px var(--status-error); }
+  input.error:focus { box-shadow: inset 0 0 0 1px var(--status-error), 0 0 0 3px rgba(228,38,0,0.15); }
+  textarea { height: auto; resize: vertical; min-height: 80px; line-height: 1.5; padding: 10px 12px; }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23949494' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+    cursor: pointer;
+  }
+
+  /* helper text */
+  .helper-text { font-size: 11.5px; color: var(--text-muted); line-height: 1.5; }
+  .error-text {
+    font-size: 11.5px;
+    color: var(--status-error);
+    display: none;
+    align-items: center;
+    gap: 4px;
+  }
+  .error-text.visible { display: flex; }
+
+  /* upload area */
+  .upload-area {
+    box-shadow: inset 0 0 0 1.5px var(--border-default);
+    border-radius: var(--radius-base-px);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.15s, background 0.15s;
+    background: var(--bg-layout);
+  }
+  .upload-area:hover { box-shadow: inset 0 0 0 1.5px var(--color-primary); background: var(--color-primary-bg); }
+  .upload-icon { font-size: 24px; margin-bottom: 6px; color: var(--text-muted); }
+  .upload-text { font-size: 12.5px; color: var(--text-secondary); }
+  .upload-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .upload-area input[type="file"] { display: none; }
+
+  /* freeze window pair */
+  .freeze-pair { display: flex; align-items: center; gap: 10px; }
+  .freeze-pair select { flex: 1; }
+  .freeze-sep { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+
+  /* checkboxes */
+  .check-group { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+  .check-item { display: flex; align-items: flex-start; gap: 10px; }
+  .check-item input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none;
+    width: 16px; height: 16px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1.5px var(--border-default);
+    background: var(--bg-elevated);
+    margin: 1px 0 0 0;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .check-item input[type="checkbox"]:checked {
+    background: var(--color-primary);
+    box-shadow: inset 0 0 0 1.5px var(--color-primary);
+  }
+  .check-item input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 4px; top: 1px;
+    width: 4px; height: 8px;
+    border: solid var(--on-primary);
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  .check-label { font-size: 13px; color: var(--core-gray-text); font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .check-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; line-height: 1.4; }
+
+
+
+  /* contacts section */
+  .contact-row { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: stretch; margin-bottom: 10px; }
+  .remove-btn {
+    width: 34px;
+    height: 100%;
+    box-shadow: inset 0 0 0 1px var(--status-error-bg);
+    background: var(--bg-container);
+    border: none;
+    border-radius: var(--radius-base-px);
+    color: var(--status-error);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  .remove-btn:hover { background: var(--status-error-bg); }
+  .add-contact-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px var(--color-primary-bg);
+    border: none;
+    border-radius: var(--radius-btn-sm);
+    color: var(--color-primary);
+    padding: 0 14px;
+    height: 36px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    margin-top: 4px;
+    transition: background 0.15s;
+    font-weight: 700;
+  }
+  .add-contact-btn:hover { background: var(--color-primary-bg); }
+
+  /* checkbox detail panel */
+  .check-detail {
+    background: var(--bg-layout);
+    border-radius: var(--radius-base-px);
+    padding: 14px 16px;
+    margin-top: 8px;
+    margin-left: 26px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .check-detail.visible { display: flex; }
+  .check-detail-label {
+    font-family: var(--font-meta);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .check-detail-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end; }
+  .sync-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px var(--color-primary-bg);
+    border: none;
+    border-radius: var(--radius-btn-sm);
+    color: var(--color-primary);
+    padding: 0 14px;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .sync-btn:hover { background: var(--color-primary-bg); }
+
+  /* divider */
+  .divider { border: none; box-shadow: inset 0 -1px 0 0 var(--border-secondary); margin: 20px 0; }
+
+  /* form actions */
+  .form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 24px;
+    background: var(--bg-elevated);
+    box-shadow: inset 0 0 0 1px var(--border-default);
+    border-radius: var(--radius-card-px);
+  }
+  .btn-secondary {
+    height: 40px;
+    padding: 0 20px;
+    box-shadow: inset 0 0 0 1px var(--border-default);
+    border: none;
+    border-radius: var(--radius-btn-md);
+    background: var(--bg-container);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-heading);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: background 0.15s, box-shadow 0.15s, color 0.15s;
+  }
+  .btn-secondary:hover { background: var(--color-primary-bg); box-shadow: inset 0 0 0 1px var(--color-primary); color: var(--color-primary); }
+  .btn-primary {
+    height: 40px;
+    padding: 0 24px;
+    border: none;
+    border-radius: var(--radius-btn-md);
+    background: var(--color-primary);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--on-primary);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: background 0.15s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .btn-primary:hover { background: var(--color-primary-hover); }
+
+  /* success toast */
+  .toast {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: var(--status-success-bg);
+    border-radius: var(--radius-alert);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--status-success);
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: var(--shadow-card);
+    transform: translateY(80px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 200;
+    font-weight: 600;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* --- Descriptions component (Ant-inspired data display) --- */
+  .desc-card {
+    background: var(--bg-elevated);
+    box-shadow: inset 0 0 0 1px var(--border-default);
+    border-radius: var(--radius-card, 16px);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .desc-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px;
+    box-shadow: inset 0 -1px 0 var(--border-default);
+  }
+  .desc-card-title { font-family: var(--font-sans); font-weight: 700; font-size: 15px; color: var(--text-heading); }
+  .desc-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .desc-item { padding: 14px 24px; box-shadow: inset -1px 0 0 var(--border-default), inset 0 -1px 0 var(--border-default); }
+  .desc-item:nth-child(2n) { box-shadow: inset 0 -1px 0 var(--border-default); }
+  .desc-item.full { grid-column: 1 / -1; box-shadow: inset 0 -1px 0 var(--border-default); }
+  .desc-label {
+    font-family: var(--font-meta); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.02em;
+    color: var(--text-muted); margin-bottom: 4px;
+  }
+  .desc-value { font-family: var(--font-sans); font-size: 14px; color: var(--text-heading); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .desc-value.empty { color: var(--text-muted); font-style: italic; }
+
+  /* Tag (Ant data-display Tag, mapped to Ninja tokens) */
+  .ds-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: var(--font-sans); font-size: 11.5px; font-weight: 600;
+    padding: 2px 10px; border-radius: var(--radius-pill-px);
+    line-height: 1.7;
+  }
+  .ds-tag.success { background: var(--status-success-bg); color: var(--status-success); }
+  .ds-tag.warning { background: var(--status-warning-bg); color: #B25400; }
+  .ds-tag.error { background: var(--status-error-bg); color: var(--status-error); }
+  .ds-tag.neutral { background: var(--bg-layout); color: var(--text-secondary); }
+  .ds-tag.primary { background: var(--color-primary-bg); color: var(--color-primary); }
+
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <button class="nav-toggle" type="button" onclick="toggleSidebar()" aria-label="Collapse navigation" title="Collapse navigation">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2.5L3.5 6l4 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </button>
+  <div class="sidebar-head">
+    <div class="sidebar-logo">EWA</div>
+  </div>
+  <a class="nav-item" href="#" title="Dashboard">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect></svg>
+    <span class="nav-label">Dashboard</span>
+  </a>
+  <a class="nav-item" href="#" title="Transactions">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 6h9l-2.5-2.5M15 12H6l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <span class="nav-label">Transactions</span>
+  </a>
+  <a class="nav-item" href="#" title="Report">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.4"></rect><path d="M6 11v2M9 8v5M12 5.5v8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <span class="nav-label">Report</span>
+  </a>
+  <a class="nav-item active" href="#" title="Companies">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="2" width="8" height="14" rx="1" stroke="currentColor" stroke-width="1.4"></rect><rect x="11" y="6" width="4" height="10" rx="1" stroke="currentColor" stroke-width="1.4"></rect><path d="M5.5 5h1M5.5 8h1M5.5 11h1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <span class="nav-label">Companies</span>
+  </a>
+  <a class="nav-item" href="#" title="Users">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6" r="3" stroke="currentColor" stroke-width="1.4"></circle><path d="M3.5 15c0-3 2.5-4.5 5.5-4.5s5.5 1.5 5.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <span class="nav-label">Users</span>
+  </a>
+  <div class="sidebar-footer">
+    <svg viewBox="0 0 272 272" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M91.0143 1.07408H83.3697H270.798V270.439H1.58312L1.45798 89.9496H270.564M270.564 179.754H0.797913M91.0143 0.948746V269.558M181.051 0.948746V269.558" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="square"></path>
+      <path d="M90.9544 270.395V89.9703L181.291 270.492M1.5 270.949V80.2708C1.5 80.2708 2.49597 3.75899 81.5896 1.54138C145.982 -0.268598 163.252 57.7008 185.593 100.09C207.941 142.479 270.45 270.492 270.45 270.492" stroke="white" stroke-opacity="0.5" stroke-width="3" stroke-miterlimit="4.3"></path>
+    </svg>
+  </div>
+</aside>
+<div class="main-col">
+
+<!-- Top nav -->
+<nav class="topnav">
+  <div style="display:flex; align-items:center; gap:20px;">
+    <div class="breadcrumb">
+      <a href="#">Company management</a>
+      <span class="sep">/</span>
+      <span class="current">Add company</span>
+    </div>
+  </div>
+  <div class="user-pill">
+    <div class="user-avatar">CM</div>
+    cyndy.messah@nttdata.com
+  </div>
+</nav>
+
+<!-- Page -->
+<div class="page-wrap">
+
+  <h1 class="page-title">Add a new company</h1>
+  <p class="page-subtitle">Set up a company's EWA account. You can edit most settings later.</p>
+
+
+  <!-- SECTION 1: General information -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--color-primary-bg);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="#0072BC" stroke-width="1.3"></rect><path d="M5 8h6M5 11h4M5 5h3" stroke="#0072BC" stroke-width="1.3" stroke-linecap="round"></path></svg>
+      </div>
+      <div>
+        <div class="section-title">General information</div>
+        <div class="section-desc">Basic details about the company</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <!-- Logo -->
+      <div class="field-row single" style="margin-bottom:16px;">
+        <div class="field">
+          <div class="field-label">
+            Company logo
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-logo')" aria-label="More info about company logo"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-logo">Shown in the app so employees can recognise it as their employer's platform.</div>
+            </span>
+          </div>
+          <label class="upload-area" for="logo-upload">
+            <div class="upload-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M3 15l4-4 4 4 4-6 4 6"></path><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"></circle></svg>
+            </div>
+            <div class="upload-text">Click to upload your company logo</div>
+            <div class="upload-sub">PNG or JPG, recommended 200×200px</div>
+            <input type="file" id="logo-upload" accept="image/*" onchange="handleLogoUpload(this)">
+          </label>
+        </div>
+      </div>
+
+      <!-- Company ID + Name -->
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">
+            Company ID <span class="req-asterisk">*</span> <span class="badge-locked"><svg width="8" height="9" viewBox="0 0 8 9" fill="none"><rect x="1" y="4" width="6" height="4.5" rx="1" stroke="currentColor"></rect><path d="M2 4V2.5a2 2 0 014 0V4" stroke="currentColor"></path></svg>Locked after creation</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-companyid')" aria-label="More info about company ID"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-companyid">A short unique code the system uses to identify this company. You won't be able to change it after saving. Used internally — not shown to employees.</div>
+            </span>
+          </div>
+          <input type="text" id="company-code" placeholder="e.g. IN-TATASTEEL-01" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Company ID')">
+          <span class="error-text" id="err-company-code">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Company ID is required
+          </span>
+        </div>
+        <div class="field">
+          <div class="field-label">Company name <span class="req-asterisk">*</span></div>
+          <input type="text" id="company-name" placeholder="e.g. Tata Steel Limited" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Company name')">
+          <span class="error-text" id="err-company-name">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Company name is required
+          </span>
+        </div>
+      </div>
+
+      <!-- Country + Address -->
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Country</div>
+          <select id="country">
+            <option value="">Select a country</option>
+            <option>Vietnam</option>
+            <option>Indonesia</option>
+            <option>Philippines</option>
+            <option>India</option>
+            <option>Singapore</option>
+            <option>Malaysia</option>
+            <option>Thailand</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="field-label">Office address</div>
+          <input type="text" placeholder="e.g. Plot 12, Sector 18, Gurugram, Haryana">
+        </div>
+      </div>
+
+      <!-- Payroll freeze window -->
+      <div class="field-row single">
+        <div class="field">
+          <div class="field-label">
+            Payroll freeze window <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-freeze')" aria-label="More info about payroll freeze window"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-freeze">During this window, employees cannot submit new EWA requests. Set these dates to just before your payroll runs so the numbers stay accurate and payments aren't disrupted.</div>
+            </span>
+          </div>
+          <div class="freeze-pair">
+            <div style="flex:1;">
+              <select id="freeze-start" data-required="true" onchange="updateProgress(); validateField(this, 'Freeze start day')">
+                <option value="">Freeze starts on — select day</option>
+                <option value="20">Day 20</option><option value="21">Day 21</option>
+                <option value="22">Day 22</option><option value="23">Day 23</option>
+                <option value="24">Day 24</option><option value="25">Day 25</option>
+                <option value="26">Day 26</option><option value="27">Day 27</option>
+                <option value="28">Day 28</option>
+              </select>
+            </div>
+            <span class="freeze-sep">to</span>
+            <div style="flex:1;">
+              <select id="freeze-end" data-required="true" onchange="updateProgress(); validateField(this, 'Freeze end day')">
+                <option value="">Freeze ends on — select day</option>
+                <option value="1">Day 1</option><option value="2">Day 2</option>
+                <option value="3">Day 3</option><option value="4">Day 4</option>
+                <option value="5">Day 5</option>
+              </select>
+            </div>
+          </div>
+          <span class="error-text" id="err-freeze-start">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Please set both the freeze start and end day
+          </span>
+        </div>
+      </div>
+
+      <!-- Tax code + Note -->
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">
+            Tax registration number
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-tax')" aria-label="More info about tax registration number"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-tax">Your company's government-issued tax ID. Used for financial reporting only.</div>
+            </span>
+          </div>
+          <input type="text" placeholder="e.g. 22AAAAA0000A1Z5">
+        </div>
+        <div class="field">
+          <div class="field-label">Internal notes</div>
+          <input type="text" placeholder="Add any notes (visible to admins only)">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: Company configuration -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--status-success-bg);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#068941" stroke-width="1.3"></circle><path d="M5.5 8.5l2 2 3.5-3.5" stroke="#068941" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+      <div>
+        <div class="section-title">Company configuration</div>
+        <div class="section-desc">Rules that control how EWA works for this company's employees</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <!-- Calculation method + Currency -->
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">
+            Wage calculation method <span class="req-asterisk">*</span> <span class="badge-locked"><svg width="8" height="9" viewBox="0 0 8 9" fill="none"><rect x="1" y="4" width="6" height="4.5" rx="1" stroke="currentColor"></rect><path d="M2 4V2.5a2 2 0 014 0V4" stroke="currentColor"></path></svg>Locked after creation</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-formula')" aria-label="More info about wage calculation method"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-formula">This determines how we calculate how much of their earned wages an employee is eligible to access. For example: based on days worked, hours logged, or a fixed daily rate.</div>
+            </span>
+          </div>
+          <select id="calc-formula" data-required="true" onchange="updateProgress(); validateField(this, 'Wage calculation method')">
+            <option value="">Select a method</option>
+            <option>Daily rate</option>
+            <option>Hourly rate</option>
+            <option>Days worked</option>
+            <option>Custom formula</option>
+          </select>
+          <span class="error-text" id="err-calc-formula">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Please select a calculation method
+          </span>
+        </div>
+        <div class="field">
+          <div class="field-label">Payout currency <span class="req-asterisk">*</span> <span class="badge-locked"><svg width="8" height="9" viewBox="0 0 8 9" fill="none"><rect x="1" y="4" width="6" height="4.5" rx="1" stroke="currentColor"></rect><path d="M2 4V2.5a2 2 0 014 0V4" stroke="currentColor"></path></svg>Locked after creation</span></div>
+          <select id="currency" data-required="true" onchange="updateProgress(); validateField(this, 'Payout currency')">
+            <option value="">Select currency</option>
+            <option>VND — Vietnamese Dong</option>
+            <option>IDR — Indonesian Rupiah</option>
+            <option>PHP — Philippine Peso</option>
+            <option>INR — Indian Rupee</option>
+            <option>SGD — Singapore Dollar</option>
+            <option>USD — US Dollar</option>
+          </select>
+          <span class="error-text" id="err-currency">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Please select a currency
+          </span>
+        </div>
+      </div>
+
+      <!-- EWA config -->
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">
+            Access limit type <span class="req-asterisk">*</span>
+          </div>
+          <select id="ewa-config-type" data-required="true">
+            <option value="percent">Percent</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="field-label">
+            Access limit value <span class="req-asterisk">*</span>
+          </div>
+          <input type="number" id="ewa-config-value" placeholder="e.g. 50" min="0" max="100" step="1" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Access limit value')">
+          <span class="error-text" id="err-ewa-config-value">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Access limit value is required
+          </span>
+        </div>
+      </div>
+
+      <!-- Fee type + Service fee -->
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Fee type <span class="req-asterisk">*</span></div>
+          <select id="fee-type" data-required="true" onchange="toggleFeeType(); updateProgress(); validateField(this, 'Fee type')">
+            <option value="">Select fee type</option>
+            <option value="percent">Percentage of withdrawal</option>
+            <option value="fixed">Fixed amount</option>
+          </select>
+          <span class="error-text" id="err-fee-type">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Please select a fee type
+          </span>
+        </div>
+        <div class="field" id="fee-percent-field">
+          <div class="field-label">
+            Service fee (%) <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-feepercent')" aria-label="More info about service fee"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-feepercent">The percentage charged to the employee per withdrawal request.</div>
+            </span>
+          </div>
+          <input type="number" id="config-fee" placeholder="e.g. 2.5" min="0" max="100" step="0.1" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Service fee')">
+          <span class="error-text" id="err-config-fee">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Service fee is required
+          </span>
+        </div>
+        <div class="field" id="fee-fixed-field" style="display:none;">
+          <div class="field-label">
+            Service fee (fixed amount) <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-feefixed')" aria-label="More info about service fee"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-feefixed">A flat fee charged to the employee per withdrawal request, regardless of amount.</div>
+            </span>
+          </div>
+          <input type="number" id="config-fee-fixed" placeholder="e.g. 50" data-required="false" oninput="updateProgress()" onblur="validateField(this, 'Service fee')">
+          <span class="error-text" id="err-config-fee-fixed">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Service fee is required
+          </span>
+        </div>
+      </div>
+
+      <!-- Min + Max per withdrawal -->
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">
+            Minimum per withdrawal <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-minamount')" aria-label="More info about minimum per withdrawal"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-minamount">The smallest amount an employee can request in one withdrawal.</div>
+            </span>
+          </div>
+          <input type="number" id="min-amount" placeholder="e.g. 1,000" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Minimum per withdrawal')">
+          <span class="error-text" id="err-min-amount">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Minimum per withdrawal is required
+          </span>
+        </div>
+        <div class="field">
+          <div class="field-label">
+            Maximum per withdrawal <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-maxwithdrawal')" aria-label="More info about maximum per withdrawal"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-maxwithdrawal">The most an employee can request in a single withdrawal.</div>
+            </span>
+          </div>
+          <input type="number" id="max-per-withdrawal" placeholder="e.g. 50,000" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Maximum per withdrawal')">
+          <span class="error-text" id="err-max-per-withdrawal">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Maximum per withdrawal is required
+          </span>
+        </div>
+      </div>
+
+      <!-- Monthly limit -->
+      <div class="field-row single">
+        <div class="field">
+          <div class="field-label">
+            Monthly withdrawal limit (company pool) <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-monthlylimit')" aria-label="More info about monthly withdrawal limit"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-monthlylimit">The total all employees combined can withdraw from this company in a single month — a shared pool, not a per-employee limit.</div>
+            </span>
+          </div>
+          <input type="number" id="monthly-limit" placeholder="e.g. 5,00,000" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Monthly withdrawal limit')">
+          <span class="error-text" id="err-monthly-limit">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Monthly withdrawal limit is required
+          </span>
+        </div>
+      </div>
+
+      <!-- Rounding value -->
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">
+            Round amounts to nearest <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-rounding')" aria-label="More info about rounding"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-rounding">Withdrawal amounts will be rounded to this value to keep payouts clean. For example, entering 10,000 means an amount like 437,250 becomes 440,000.</div>
+            </span>
+          </div>
+          <input type="number" id="rounding" placeholder="e.g. 100" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Rounding value')">
+          <span class="error-text" id="err-rounding">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Rounding value is required
+          </span>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Checkboxes -->
+      <div class="check-group">
+        <div>
+          <div class="check-item">
+            <input type="checkbox" id="auto-transfer" onchange="toggleAutoTransferDetail(); updateProgress()">
+            <div>
+              <label class="check-label" for="auto-transfer">Auto transfer money</label>
+              <span class="tooltip-wrap">
+                <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-auto-transfer')" aria-label="More info about auto transfer money"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+                <div class="tooltip-box" id="tt-auto-transfer">When turned on, money is sent to the employee's bank account immediately after a request is approved — no manual step needed.</div>
+              </span>
+            </div>
+          </div>
+          <div class="check-detail" id="auto-transfer-detail">
+            <div class="check-detail-label">E-Withdraw (EWD) configuration</div>
+            <div class="check-detail-row">
+              <div class="field">
+                <div class="field-label">Merchant code <span class="req-asterisk">*</span></div>
+                <input type="text" id="merchant-code" placeholder="e.g. 90234875322" data-required="true" data-conditional-on="auto-transfer" oninput="updateProgress()" onblur="validateField(this, 'Merchant code')">
+                <span class="error-text" id="err-merchant-code">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+                  Merchant code is required
+                </span>
+              </div>
+              <div class="field">
+                <div class="field-label">Operating account <span class="req-asterisk">*</span></div>
+                <input type="text" id="operating-account" placeholder="e.g. 872346398-23" data-required="true" data-conditional-on="auto-transfer" oninput="updateProgress()" onblur="validateField(this, 'Operating account')">
+                <span class="error-text" id="err-operating-account">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+                  Operating account is required
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="check-item">
+            <input type="checkbox" id="allow-bank-change">
+            <div>
+              <label class="check-label" for="allow-bank-change">Let employees update bank details on request</label>
+              <span class="tooltip-wrap">
+                <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-bank-change')" aria-label="More info about updating bank details"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+                <div class="tooltip-box" id="tt-bank-change">When turned on, employees can change the bank account they want funds sent to at the time they submit a request.</div>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="check-item">
+            <input type="checkbox" id="use-hrm" onchange="toggleHrmDetail(); updateProgress()">
+            <div>
+              <label class="check-label" for="use-hrm">Sync employee data from MSV <span class="badge-locked"><svg width="8" height="9" viewBox="0 0 8 9" fill="none"><rect x="1" y="4" width="6" height="4.5" rx="1" stroke="currentColor"></rect><path d="M2 4V2.5a2 2 0 014 0V4" stroke="currentColor"></path></svg>Locked after creation</span></label>
+              <span class="tooltip-wrap">
+                <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-use-hrm')" aria-label="More info about HRM"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+                <div class="tooltip-box" id="tt-use-hrm">When turned on, employee and payroll data will be pulled automatically from your MSV HR system instead of being uploaded manually.</div>
+              </span>
+            </div>
+          </div>
+          <div class="check-detail" id="hrm-detail">
+            <div class="check-detail-label">HRM configuration</div>
+            <div class="check-detail-row" style="grid-template-columns: 1fr auto;">
+              <div class="field">
+                <div class="field-label">HRM code <span class="req-asterisk">*</span></div>
+                <input type="text" id="hrm-code" placeholder="e.g. 982340048875" data-required="true" data-conditional-on="use-hrm" oninput="updateProgress()" onblur="validateField(this, 'HRM code')">
+                <span class="error-text" id="err-hrm-code">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+                  HRM code is required
+                </span>
+              </div>
+              <button class="sync-btn" type="button" onclick="syncHrm()" id="sync-hrm-btn">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5a4.5 4.5 0 018-2.7M11 6.5a4.5 4.5 0 01-8 2.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><path d="M9.7 2.5v1.8H8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.3 10.5V8.7H5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                Sync information (from MSV)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: Bank information -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--bg-layout);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="8" rx="2" stroke="#070F26" stroke-width="1.3"></rect><path d="M5 6V4a3 3 0 016 0v2" stroke="#070F26" stroke-width="1.3"></path><circle cx="8" cy="10" r="1.2" fill="#070F26"></circle></svg>
+      </div>
+      <div>
+        <div class="section-title">Bank information</div>
+        <div class="section-desc">The company bank account EWA funds are drawn from</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">
+            Company bank <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-bankname')" aria-label="More info about company bank"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-bankname">Funds will be drawn from this bank when employees make a withdrawal.</div>
+            </span>
+          </div>
+          <select id="bank" data-required="true" onchange="updateProgress(); validateField(this, 'Company bank')">
+            <option value="">Select a bank</option>
+            <option>Vietcombank</option>
+            <option>Techcombank</option>
+            <option>HDFC Bank</option>
+            <option>SBI</option>
+            <option>BCA</option>
+            <option>Mandiri</option>
+            <option>DBS</option>
+          </select>
+          <span class="error-text" id="err-bank">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Please select a bank
+          </span>
+        </div>
+        <div class="field">
+          <div class="field-label">Account number <span class="req-asterisk">*</span></div>
+          <input type="text" id="bank-number" placeholder="e.g. 50100123456789" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Account number')">
+          <span class="error-text" id="err-bank-number">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Account number is required
+          </span>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">
+            Account holder name <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-holdername')" aria-label="More info about account holder name"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-holdername">This must match the name registered with your bank exactly.</div>
+            </span>
+          </div>
+          <input type="text" id="bank-holder" placeholder="e.g. Priya Sharma" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Account holder name')">
+          <span class="error-text" id="err-bank-holder">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Account holder name is required
+          </span>
+        </div>
+        <div class="field">
+          <div class="field-label">
+            Bank branch code (IFSC) <span class="req-asterisk">*</span>
+            <span class="tooltip-wrap">
+              <button class="tooltip-trigger" type="button" onclick="toggleTooltip('tt-ifsc')" aria-label="More info about IFSC code"><svg width="9" height="9" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="4.8" r="0.9" fill="currentColor"></circle></svg></button>
+              <div class="tooltip-box" id="tt-ifsc">An 11-character code that identifies your specific bank branch. You can find this on your bank statement, passbook, or chequebook. Example: SBIN0001234.</div>
+            </span>
+          </div>
+          <input type="text" id="ifsc" placeholder="e.g. SBIN0001234" maxlength="11" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Bank branch code')">
+          <span class="error-text" id="err-ifsc">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+            Bank branch code (IFSC) is required
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: Contact information -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--status-warning-bg);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.5" r="2.5" stroke="#FF7A00" stroke-width="1.3"></circle><path d="M3 13c0-2.761 2.239-4 5-4s5 1.239 5 4" stroke="#FF7A00" stroke-width="1.3" stroke-linecap="round"></path></svg>
+      </div>
+      <div>
+        <div class="section-title">Primary contact(s)</div>
+        <div class="section-desc">Who we reach if there are any issues with this account</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div id="contacts-wrap">
+        <div class="contact-row" id="contact-0">
+          <div class="field">
+            <div class="field-label" style="font-size:11.5px;">Full name <span class="req-asterisk">*</span></div>
+            <input type="text" id="contact-name-0" placeholder="e.g. Priya Sharma" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Contact name')">
+            <span class="error-text" id="err-contact-name-0">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+              Name is required
+            </span>
+          </div>
+          <div class="field">
+            <div class="field-label" style="font-size:11.5px;">Phone number <span class="req-asterisk">*</span></div>
+            <input type="tel" id="contact-phone-0" placeholder="e.g. +91 98765 43210" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Phone number')">
+            <span class="error-text" id="err-contact-phone-0">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+              Phone is required
+            </span>
+          </div>
+          <div class="field">
+            <div class="field-label" style="font-size:11.5px;">Work email <span class="req-asterisk">*</span></div>
+            <input type="email" id="contact-email-0" placeholder="e.g. priya.sharma@tatasteel.in" data-required="true" oninput="updateProgress()" onblur="validateField(this, 'Work email')">
+            <span class="error-text" id="err-contact-email-0">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle><path d="M6 3.5V6.5M6 8v.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+              Email is required
+            </span>
+          </div>
+          <div style="width:34px;"></div>
+        </div>
+      </div>
+
+      <button class="add-contact-btn" type="button" onclick="addContact()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="currentColor"></circle><path d="M7 4v6M4 7h6" stroke="currentColor" stroke-linecap="round"></path></svg>
+        Add another contact
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Form actions -->
+  <div class="form-actions">
+    <button class="btn-secondary" type="button" onclick="window.history.back()">Back</button>
+    <button class="btn-primary" type="button" onclick="submitForm()">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5l4 4 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Create company
+    </button>
+  </div>
+
+  </div>
+
+  <!-- SUCCESS / COMPANY SUMMARY PAGE -->
+  <div class="page-wrap" id="summary-wrap" style="display:none;">
+
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:20px;">
+      <div>
+        <h1 class="page-title">Company created</h1>
+        <p class="page-subtitle">Here's a summary of what was set up. Most settings can be edited later.</p>
+      </div>
+      <span class="ds-tag success">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"></circle><path d="M5.5 8.2l1.7 1.7 3-3.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Active
+      </span>
+    </div>
+
+    <div class="desc-card">
+      <div class="desc-card-header">
+        <div class="desc-card-title">General information</div>
+      </div>
+      <div class="desc-grid">
+        <div class="desc-item full">
+          <div class="desc-label">Company logo</div>
+          <div class="desc-value" id="sum-logo">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Company ID</div>
+          <div class="desc-value" id="sum-company-code">— <span class="ds-tag neutral">Locked</span></div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Company name</div>
+          <div class="desc-value" id="sum-company-name">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Country</div>
+          <div class="desc-value" id="sum-country">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Office address</div>
+          <div class="desc-value" id="sum-address">—</div>
+        </div>
+        <div class="desc-item full">
+          <div class="desc-label">Payroll freeze window</div>
+          <div class="desc-value" id="sum-freeze">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Tax registration number</div>
+          <div class="desc-value" id="sum-tax">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Internal notes</div>
+          <div class="desc-value" id="sum-notes">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="desc-card">
+      <div class="desc-card-header">
+        <div class="desc-card-title">Company configuration</div>
+      </div>
+      <div class="desc-grid">
+        <div class="desc-item">
+          <div class="desc-label">Wage calculation method</div>
+          <div class="desc-value" id="sum-calc">— <span class="ds-tag neutral">Locked</span></div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Payout currency</div>
+          <div class="desc-value" id="sum-currency">— <span class="ds-tag neutral">Locked</span></div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">EWA access limit</div>
+          <div class="desc-value" id="sum-ewa">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Fee type</div>
+          <div class="desc-value" id="sum-fee-type">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Service fee</div>
+          <div class="desc-value" id="sum-fee">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Minimum per withdrawal</div>
+          <div class="desc-value" id="sum-min-amount">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Maximum per withdrawal</div>
+          <div class="desc-value" id="sum-max-amount">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Monthly withdrawal limit (company pool)</div>
+          <div class="desc-value" id="sum-monthly-limit">—</div>
+        </div>
+        <div class="desc-item full">
+          <div class="desc-label">Enabled options</div>
+          <div class="desc-value" id="sum-flags">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="desc-card">
+      <div class="desc-card-header">
+        <div class="desc-card-title">Bank information</div>
+      </div>
+      <div class="desc-grid">
+        <div class="desc-item">
+          <div class="desc-label">Company bank</div>
+          <div class="desc-value" id="sum-bank">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Account number</div>
+          <div class="desc-value" id="sum-bank-number">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Account holder name</div>
+          <div class="desc-value" id="sum-bank-holder">—</div>
+        </div>
+        <div class="desc-item">
+          <div class="desc-label">Bank branch code (IFSC)</div>
+          <div class="desc-value" id="sum-ifsc">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="desc-card">
+      <div class="desc-card-header">
+        <div class="desc-card-title">Contacts</div>
+      </div>
+      <div class="desc-grid" id="sum-contacts"></div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn-secondary" type="button" onclick="backToForm()">Edit details</button>
+      <button class="btn-primary" type="button" onclick="window.location.reload()">Done</button>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7.5" fill="#068941"></circle><path d="M4.5 8l3 3 4-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  Company created successfully!
+</div>
+
+<script>
+  let contactCount = 1;
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const collapsed = sidebar.classList.toggle('collapsed');
+    localStorage.setItem('ewa-sidebar-collapsed', collapsed ? '1' : '0');
+  }
+  if (localStorage.getItem('ewa-sidebar-collapsed') === '1') {
+    document.getElementById('sidebar').classList.add('collapsed');
+  }
+
+  function toggleTooltip(id) {
+    const box = document.getElementById(id);
+    box.classList.toggle('open');
+  }
+
+
+
+
+  function toggleAutoTransferDetail() {
+    const cb = document.getElementById('auto-transfer');
+    document.getElementById('auto-transfer-detail').classList.toggle('visible', cb.checked);
+    updateProgress();
+  }
+
+  function toggleHrmDetail() {
+    const cb = document.getElementById('use-hrm');
+    document.getElementById('hrm-detail').classList.toggle('visible', cb.checked);
+    updateProgress();
+  }
+
+  function syncHrm() {
+    const btn = document.getElementById('sync-hrm-btn');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Synced';
+    setTimeout(() => { btn.innerHTML = original; }, 1800);
+  }
+
+  function toggleFeeType() {
+    const type = document.getElementById('fee-type').value;
+    const showFixed = type === 'fixed';
+    document.getElementById('fee-percent-field').style.display = showFixed ? 'none' : '';
+    document.getElementById('fee-fixed-field').style.display = showFixed ? '' : 'none';
+    document.getElementById('config-fee').dataset.required = showFixed ? 'false' : 'true';
+    document.getElementById('config-fee-fixed').dataset.required = showFixed ? 'true' : 'false';
+  }
+
+  function isFieldActive(el) {
+    const cond = el.dataset.conditionalOn;
+    if (!cond) return true;
+    const trigger = document.getElementById(cond);
+    return !!(trigger && trigger.checked);
+  }
+
+  function validateField(el, name) {
+    const id = el.id;
+    const errId = 'err-' + id;
+    const errEl = document.getElementById(errId);
+    if (!errEl) return;
+    if (isFieldActive(el) && el.dataset.required === 'true' && !el.value.trim()) {
+      el.classList.add('error');
+      errEl.classList.add('visible');
+    } else {
+      el.classList.remove('error');
+      errEl.classList.remove('visible');
+    }
+  }
+
+  function updateProgress() {}
+
+  function addContact() {
+    const wrap = document.getElementById('contacts-wrap');
+    const div = document.createElement('div');
+    div.className = 'contact-row';
+    div.id = 'contact-' + contactCount;
+    div.innerHTML = `
+      <div class="field">
+        <div class="field-label" style="font-size:11.5px;">Full name</div>
+        <input type="text" placeholder="e.g. Priya Sharma">
+      </div>
+      <div class="field">
+        <div class="field-label" style="font-size:11.5px;">Phone number</div>
+        <input type="tel" placeholder="e.g. +91 98765 43210">
+      </div>
+      <div class="field">
+        <div class="field-label" style="font-size:11.5px;">Work email</div>
+        <input type="email" placeholder="e.g. priya.sharma@tatasteel.in">
+      </div>
+      <div style="display:flex;">
+        <button class="remove-btn" type="button" onclick="removeContact('contact-${contactCount}')" aria-label="Remove contact">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    `;
+    wrap.appendChild(div);
+    contactCount++;
+  }
+
+  function removeContact(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+
+  function handleLogoUpload(input) {
+    if (input.files && input.files[0]) {
+      const label = input.closest('.upload-area');
+      label.querySelector('.upload-text').textContent = input.files[0].name;
+      label.querySelector('.upload-sub').textContent = 'Click to change';
+      label.style.boxShadow = 'inset 0 0 0 1.5px var(--color-primary)';
+      label.style.background = 'var(--color-primary-bg)';
+    }
+  }
+
+  function submitForm() {
+    const required = document.querySelectorAll('[data-required="true"]');
+    let hasError = false;
+    let firstInvalid = null;
+    required.forEach(el => {
+      if (!isFieldActive(el)) return;
+      if (!el.value || !el.value.trim()) {
+        el.classList.add('error');
+        const errId = 'err-' + el.id;
+        const errEl = document.getElementById(errId);
+        if (errEl) errEl.classList.add('visible');
+        if (!hasError) firstInvalid = el;
+        hasError = true;
+      }
+    });
+    if (firstInvalid) firstInvalid.focus();
+    if (!hasError) {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+      populateSummary();
+      document.querySelector('.page-wrap:not(#summary-wrap)').style.display = 'none';
+      document.getElementById('summary-wrap').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+  }
+
+  function backToForm() {
+    document.getElementById('summary-wrap').style.display = 'none';
+    document.querySelector('.page-wrap:not(#summary-wrap)').style.display = 'block';
+  }
+
+  function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  function selText(id) { const el = document.getElementById(id); return el && el.selectedIndex >= 0 ? el.options[el.selectedIndex].text : ''; }
+  function setText(id, text, fallback) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const existingTag = el.querySelector('.ds-tag');
+    el.textContent = text || fallback || '\u2014';
+    if (existingTag) el.appendChild(existingTag);
+  }
+
+  function populateSummary() {
+    setText('sum-logo', document.getElementById('logo-upload').files.length ? 'Uploaded' : '', 'No logo uploaded');
+    setText('sum-company-code', val('company-code'));
+    setText('sum-company-name', val('company-name'));
+    setText('sum-country', selText('country') === 'Select a country' ? '' : selText('country'));
+    setText('sum-address', document.querySelector('input[placeholder*="Gurugram"]')?.value);
+    const fs = selText('freeze-start'), fe = selText('freeze-end');
+    setText('sum-freeze', (fs && fe && fs !== 'Freeze starts on \u2014 select day') ? (fs + ' to ' + fe) : '');
+    setText('sum-tax', document.querySelector('input[placeholder*="22AAAAA"]')?.value);
+    setText('sum-notes', document.querySelector('input[placeholder*="visible to admins"]')?.value);
+
+    setText('sum-calc', selText('calc-formula') === 'Select a method' ? '' : selText('calc-formula'));
+    setText('sum-currency', selText('currency') === 'Select currency' ? '' : selText('currency'));
+    const ewaVal = val('ewa-config-value');
+    setText('sum-ewa', ewaVal ? ewaVal + '% of earned wages' : '');
+
+    const feeType = selText('fee-type');
+    setText('sum-fee-type', feeType === 'Select fee type' ? '' : feeType);
+    const isFixed = document.getElementById('fee-type').value === 'fixed';
+    setText('sum-fee', isFixed ? (val('config-fee-fixed') ? '\u20b9' + val('config-fee-fixed') + ' flat' : '') : (val('config-fee') ? val('config-fee') + '%' : ''));
+    setText('sum-min-amount', val('min-amount') ? '\u20b9' + val('min-amount') : '');
+    // labels standardised: Minimum per withdrawal / Maximum per withdrawal
+    setText('sum-max-amount', val('max-per-withdrawal') ? '\u20b9' + val('max-per-withdrawal') : '');
+    setText('sum-monthly-limit', val('monthly-limit') ? '\u20b9' + val('monthly-limit') : '');
+
+    const flags = [];
+    if (document.getElementById('auto-transfer')?.checked) flags.push('Auto transfer money');
+    if (document.getElementById('allow-bank-change')?.checked) flags.push('Employees can update bank details');
+    if (document.getElementById('use-hrm')?.checked) flags.push('HRM sync (MSV)');
+    const flagsEl = document.getElementById('sum-flags');
+    flagsEl.innerHTML = flags.length ? flags.map(f => '<span class="ds-tag primary">' + f + '</span>').join('') : '\u2014';
+
+    setText('sum-bank', selText('bank') === 'Select a bank' ? '' : selText('bank'));
+    setText('sum-bank-number', val('bank-number'));
+    setText('sum-bank-holder', val('bank-holder'));
+    setText('sum-ifsc', val('ifsc'));
+
+    const contactsEl = document.getElementById('sum-contacts');
+    contactsEl.innerHTML = '';
+    for (let i = 0; i < contactCount; i++) {
+      const name = val('contact-name-' + i), phone = val('contact-phone-' + i), email = val('contact-email-' + i);
+      if (!name && !phone && !email) continue;
+      contactsEl.innerHTML +=
+        '<div class="desc-item"><div class="desc-label">Contact ' + (i + 1) + ' name</div><div class="desc-value">' + (name || '\u2014') + '</div></div>' +
+        '<div class="desc-item"><div class="desc-label">Contact ' + (i + 1) + ' phone / email</div><div class="desc-value">' + ([phone, email].filter(Boolean).join(' \u00b7 ') || '\u2014') + '</div></div>';
+    }
+    if (!contactsEl.innerHTML) contactsEl.innerHTML = '<div class="desc-item full"><div class="desc-value empty">No contacts added</div></div>';
+  }
+
+  updateProgress();
+</script>
+
+
+
+</body></html>

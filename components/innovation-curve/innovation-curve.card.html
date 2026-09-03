@@ -1,0 +1,43 @@
+<!-- @dsCard group="Brand" viewport="820x520" name="Innovation Curve" subtitle="NTT DATA brand graphic — dark backgrounds only, 2:1 Curve:Grid stroke ratio" -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin:0; padding:20px; background: var(--bg-layout); font-family: var(--font-sans); }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .panel { position:relative; overflow:hidden; border-radius:var(--radius-card-px); aspect-ratio:1/1; display:grid; place-items:center; }
+  .label { position:absolute; bottom:14px; left:16px; font-family:var(--font-meta); font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:rgba(255,255,255,.7); z-index:1; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { InnovationCurve } = window.NDPSDesignSystem_82df03;
+function Panel({ variant, bg, label }) {
+  return (
+    <div className="panel" style={{ background: bg }}>
+      <InnovationCurve variant={variant}
+        style={{ display: "block", width: "100%", height: "100%" }} />
+      <span className="label">{label}</span>
+    </div>
+  );
+}
+function Demo() {
+  return (
+    <div className="grid">
+      <Panel variant="wireframe" bg="var(--core-navy-smart)" label="Wireframe · Navy" />
+      <Panel variant="solid" bg="var(--core-navy-smart)" label="Solid · Navy" />
+      <Panel variant="wireframe" bg="var(--core-blue-future)" label="Wireframe · Future Blue" />
+      <Panel variant="solid" bg="var(--core-blue-future)" label="Solid · Future Blue" />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>
