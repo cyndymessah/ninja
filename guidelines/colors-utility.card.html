@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Utility / Status Colors" subtitle="Green, yellow, orange, error accents" -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 16px; background: var(--bg-container); font-family: var(--font-sans); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { width: 76px; }
+  .chip { height: 52px; border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); }
+  .label { font-size: 11px; color: var(--text-secondary); margin-top: 6px; }
+  .hex { font-size: 10px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="swatch"><div class="chip" style="background: var(--core-green)"></div><div class="label">Green</div><div class="hex">#00CB5D</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-green-150)"></div><div class="label">Green 150</div><div class="hex">#068941</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-yellow)"></div><div class="label">Yellow</div><div class="hex">#FFC400</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-orange)"></div><div class="label">Orange</div><div class="hex">#FF7A00</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-orange-150)"></div><div class="label">Orange 150</div><div class="hex">#B22000</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-orange-100)"></div><div class="label">Error</div><div class="hex">#E42600</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-turquoise)"></div><div class="label">Turquoise</div><div class="hex">#00DFED</div></div>
+</div>
+</body>
+</html>

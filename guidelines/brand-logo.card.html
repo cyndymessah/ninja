@@ -1,0 +1,28 @@
+<!-- @dsCard group="Brand" viewport="760x360" name="Logo" subtitle="NTT DATA Payment Services (NDPS) — on-light and on-dark lockups" -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg-layout); font-family: var(--font-sans); display: flex; flex-direction: column; gap: 20px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .panel { border-radius: var(--radius-card-px); padding: 40px 32px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px var(--border-default); }
+  .panel img { width: 100%; max-width: 340px; height: auto; display: block; }
+  .on-light { background: var(--core-white); }
+  .on-dark { background: var(--core-navy-smart); box-shadow: none; }
+  .label { font-family: var(--font-meta); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div>
+      <div class="label">On light</div>
+      <div class="panel on-light"><img src="../assets/ndps-logo-on-light.png" alt="NTT DATA Payment Services logo on light background"></div>
+    </div>
+    <div>
+      <div class="label">On dark</div>
+      <div class="panel on-dark"><img src="../assets/ndps-logo-on-dark.png" alt="NTT DATA Payment Services logo on dark background"></div>
+    </div>
+  </div>
+</body>
+</html>

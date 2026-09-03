@@ -1,0 +1,202 @@
+<!-- NDPS component specimen for Canva export -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="ext-resource-dependency" content="../../assets/ndps-logo-on-light.png" data-resource-id="ndpsL" />
+<meta name="ext-resource-dependency" content="../../assets/ndps-logo-on-dark.png" data-resource-id="ndpsD" />
+<meta name="ext-resource-dependency" content="../../assets/adaptis-receivables-logo-on-light.svg" data-resource-id="arL" />
+<meta name="ext-resource-dependency" content="../../assets/adaptis-receivables-logo-on-dark.svg" data-resource-id="arD" />
+<meta name="ext-resource-dependency" content="../../assets/adaptis-nttdata-logo-on-light.png" data-resource-id="anL" />
+<meta name="ext-resource-dependency" content="../../assets/adaptis-nttdata-logo-on-dark.png" data-resource-id="anD" />
+<link rel="stylesheet" href="../../styles.css">
+<template id="__bundler_thumbnail" data-bg-color="#070f26">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#070f26"></rect>
+    <rect x="420" y="320" width="160" height="70" rx="14" fill="#0072bc"></rect>
+    <rect x="620" y="320" width="160" height="70" rx="14" fill="none" stroke="#ffffff" stroke-width="3"></rect>
+    <text x="600" y="250" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle">NDPS</text>
+  </svg>
+</template>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--bg-layout); font-family: var(--font-sans); color: var(--text-heading); }
+  .page { width: 1280px; margin: 0 auto; padding: 64px; box-sizing: border-box; }
+  .doc-head { margin-bottom: 48px; }
+  .doc-head h1 { font-family: var(--font-display); font-size: 40px; font-weight: 700; margin: 0; }
+  .doc-head p { font-family: var(--font-meta); font-size: 13px; color: var(--text-muted); margin: 10px 0 0; text-transform: uppercase; letter-spacing: 0.06em; }
+  .section { margin-bottom: 44px; }
+  .section > h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--border-default); }
+  .card { background: var(--bg-elevated); border-radius: var(--radius-card-px); box-shadow: inset 0 0 0 1px var(--border-default); padding: 28px; }
+  .flow { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stack { display: flex; flex-direction: column; gap: 16px; }
+  .cover { min-height: 720px; background: var(--core-navy-smart); color: #fff; display: flex; flex-direction: column; justify-content: center; }
+  .cover h1 { font-family: var(--font-display); font-size: 72px; line-height: 1.05; font-weight: 700; margin: 0; }
+  .cover .kicker { font-family: var(--font-meta); font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--core-blue-50); margin: 0 0 24px; }
+  .cover .meta { font-family: var(--font-meta); font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin: 40px 0 0; }
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .sw { border-radius: 12px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--border-default); }
+  .sw .chip { height: 84px; }
+  .sw .meta { padding: 10px 12px; }
+  .sw .nm { font-size: 13px; font-weight: 700; color: var(--text-heading); }
+  .sw .val { font-family: var(--font-meta); font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .typerow { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--border-secondary); }
+  .typerow .tag { flex: 0 0 130px; font-family: var(--font-meta); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+  .logogrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .logopanel { border-radius: var(--radius-card-px); padding: 40px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px var(--border-default); }
+  .logopanel img { width: 100%; max-width: 300px; height: auto; display: block; }
+  .on-light { background: #fff; }
+  .on-dark { background: var(--core-navy-smart); box-shadow: none; }
+  .logolabel { font-family: var(--font-meta); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const R = window.__resources || {};
+const NS = window.NDPSDesignSystem_82df03 || {};
+const { Button, Alert, Input, Tag, Descriptions, QuickAmountInput, InnovationCurve } = NS;
+function Section(props) {
+  return (
+    <div className="section">
+      <h2>{props.title}</h2>
+      <div className="card">{props.children}</div>
+    </div>
+  );
+}
+function Sw(props) {
+  return (
+    <div className="sw">
+      <div className="chip" style={{ background: props.value }}></div>
+      <div className="meta"><div className="nm">{props.name}</div><div className="val">{props.value}</div></div>
+    </div>
+  );
+}
+function Page(props) {
+  return (
+    <div className="page" data-document-role="page" data-label={props.label} style={props.style}>
+      {props.children}
+    </div>
+  );
+}
+const CORE = [
+  ["Navy Smart", "rgb(7,15,38)"], ["Future Blue", "rgb(0,114,188)"], ["Blue 150", "rgb(0,91,150)"], ["Blue 50", "rgb(25,163,252)"],
+  ["Green", "rgb(0,203,93)"], ["Green 150", "rgb(6,137,65)"], ["Orange", "rgb(255,122,0)"], ["Orange 100", "rgb(228,38,0)"],
+  ["Turquoise", "rgb(0,223,237)"], ["Yellow", "rgb(255,196,0)"], ["Gray Text", "rgb(46,64,77)"], ["Gray 100", "rgb(148,148,148)"],
+];
+const SEMANTIC = [
+  ["Primary", "rgb(0,114,188)"], ["Primary Hover", "rgb(0,91,150)"], ["Primary Active", "rgb(0,64,103)"], ["Primary Bg", "rgb(230,241,250)"],
+  ["Info", "rgb(0,114,188)"], ["Success", "rgb(6,137,65)"], ["Warning", "rgb(255,122,0)"], ["Error", "rgb(228,38,0)"],
+  ["Bg Layout", "rgb(242,244,247)"], ["Border", "rgb(225,229,234)"], ["Text Heading", "rgb(46,64,77)"], ["Text Muted", "rgb(148,148,148)"],
+];
+function App() {
+  return (
+    <div>
+      <Page label="Cover" style={{ background: "var(--core-navy-smart)" }}>
+        <div className="cover">
+          <p className="kicker">NTT DATA Payment Services</p>
+          <h1>Ninja<br/>Design System</h1>
+          <p className="meta">Complete kit / Tokens / Type / Color / Logos / Components / v1.0</p>
+        </div>
+      </Page>
+
+      <Page label="Color">
+        <div className="doc-head"><h1>Color</h1><p>Core palette and semantic tokens (light theme)</p></div>
+        <Section title="Core palette"><div className="swatches">{CORE.map((c,i) => <Sw key={i} name={c[0]} value={c[1]} />)}</div></Section>
+        <Section title="Semantic tokens"><div className="swatches">{SEMANTIC.map((c,i) => <Sw key={i} name={c[0]} value={c[1]} />)}</div></Section>
+      </Page>
+
+      <Page label="Typography">
+        <div className="doc-head"><h1>Typography</h1><p>Noto Serif display / Noto Sans UI / Inter meta</p></div>
+        <Section title="Type scale">
+          <div className="typerow"><span className="tag">Heading 1</span><span style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 600 }}>Send money securely</span></div>
+          <div className="typerow"><span className="tag">Heading 2</span><span style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 600 }}>Send money securely</span></div>
+          <div className="typerow"><span className="tag">Heading 3</span><span style={{ fontFamily: "var(--font-sans)", fontSize: 20, fontWeight: 600 }}>Send money securely</span></div>
+          <div className="typerow"><span className="tag">Body Large</span><span style={{ fontFamily: "var(--font-sans)", fontSize: 16 }}>The quick brown fox jumps over the lazy dog.</span></div>
+          <div className="typerow"><span className="tag">Body</span><span style={{ fontFamily: "var(--font-sans)", fontSize: 14 }}>The quick brown fox jumps over the lazy dog.</span></div>
+          <div className="typerow"><span className="tag">Caption</span><span style={{ fontFamily: "var(--font-sans)", fontSize: 12, fontWeight: 500 }}>The quick brown fox jumps over the lazy dog.</span></div>
+          <div className="typerow"><span className="tag">Eyebrow</span><span style={{ fontFamily: "var(--font-meta)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.06em" }}>Meta label / eyebrow</span></div>
+        </Section>
+      </Page>
+
+      <Page label="Logos">
+        <div className="doc-head"><h1>Logos</h1><p>Brand lockups / on-light and on-dark</p></div>
+        <Section title="NTT DATA Payment Services (NDPS)">
+          <div className="logogrid">
+            <div><div className="logolabel">On light</div><div className="logopanel on-light"><img src={R.ndpsL || "../../assets/ndps-logo-on-light.png"} alt="NDPS on light" /></div></div>
+            <div><div className="logolabel">On dark</div><div className="logopanel on-dark"><img src={R.ndpsD || "../../assets/ndps-logo-on-dark.png"} alt="NDPS on dark" /></div></div>
+          </div>
+        </Section>
+        <Section title="ADAPTIS Receivables">
+          <div className="logogrid">
+            <div><div className="logolabel">On light</div><div className="logopanel on-light"><img src={R.arL || "../../assets/adaptis-receivables-logo-on-light.svg"} alt="ADAPTIS Receivables on light" /></div></div>
+            <div><div className="logolabel">On dark</div><div className="logopanel on-dark"><img src={R.arD || "../../assets/adaptis-receivables-logo-on-dark.svg"} alt="ADAPTIS Receivables on dark" /></div></div>
+          </div>
+        </Section>
+        <Section title="ADAPTIS by NTT DATA">
+          <div className="logogrid">
+            <div><div className="logolabel">On light</div><div className="logopanel on-light"><img src={R.anL || "../../assets/adaptis-nttdata-logo-on-light.png"} alt="ADAPTIS by NTT DATA on light" /></div></div>
+            <div><div className="logolabel">On dark</div><div className="logopanel on-dark"><img src={R.anD || "../../assets/adaptis-nttdata-logo-on-dark.png"} alt="ADAPTIS by NTT DATA on dark" /></div></div>
+          </div>
+        </Section>
+      </Page>
+
+      <Page label="Components">
+        <div className="doc-head">
+          <h1>Components</h1>
+          <p>NTT DATA Payment Services / Ninja Design System / v1.0</p>
+        </div>
+        <Section title="Button">
+          <div className="stack">
+            <div className="flow"><Button type="primary">Primary</Button><Button type="default">Default</Button><Button type="neutral">Neutral</Button><Button type="text">Text</Button><Button type="primary" disabled>Disabled</Button></div>
+            <div className="flow"><Button size="small">Small</Button><Button size="medium">Medium</Button><Button size="large">Large</Button></div>
+          </div>
+        </Section>
+        <Section title="Tag">
+          <div className="flow"><Tag variant="primary">Primary</Tag><Tag variant="success">Success</Tag><Tag variant="warning">Warning</Tag><Tag variant="error">Error</Tag><Tag variant="neutral">Neutral</Tag></div>
+        </Section>
+        <Section title="Alert">
+          <div className="stack">
+            <Alert variant="info" title="Heads up" description="This is an informational message." />
+            <Alert variant="success" title="Payment successful" description="Your transfer has been completed." />
+            <Alert variant="warning" title="Action needed" description="Please verify your bank details." />
+            <Alert variant="error" title="Transfer failed" description="The account number is invalid." />
+          </div>
+        </Section>
+        <Section title="Input">
+          <div className="grid2">
+            <Input label="Amount" value="5,000" />
+            <Input label="Amount" value="5,000" state="focus" />
+            <Input label="Amount" value="5,000" state="error" helper="Amount exceeds daily limit" />
+            <Input label="Amount" value="5,000" state="disabled" />
+          </div>
+        </Section>
+        <Section title="Quick Amount Input">
+          <QuickAmountInput label="Add money" value="5,000" presets={["1,000","2,500","5,000","Max"]} selectedIndex={2} />
+        </Section>
+        <Section title="Descriptions">
+          <Descriptions title="General information" items={[
+            { label: "Company ID", value: <span>IN-TATASTEEL-01 <Tag variant="neutral">Locked</Tag></span> },
+            { label: "Company name", value: "Tata Steel Limited" },
+            { label: "Country", value: "India" },
+            { label: "Office address", value: "Plot 12, Sector 18, Gurugram" },
+            { label: "Enabled options", value: <span><Tag variant="primary">Auto transfer</Tag> <Tag variant="primary">Sync employees</Tag></span>, full: true },
+          ]} />
+        </Section>
+        <Section title="Innovation Curve (brand graphic - dark surfaces only)">
+          <div style={{ background: "var(--core-navy-smart)", borderRadius: "var(--radius-card-px)", padding: 40, display: "flex", gap: 40, justifyContent: "center" }}>
+            {InnovationCurve ? <span style={{display:"flex",gap:40}}><InnovationCurve variant="wireframe" size={180} /><InnovationCurve variant="solid" size={180} /></span> : null}
+          </div>
+        </Section>
+      </Page>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

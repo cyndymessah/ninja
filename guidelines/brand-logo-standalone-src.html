@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<template id="__bundler_thumbnail" data-bg-color="#070f26">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#070f26"/>
+    <rect x="360" y="330" width="480" height="90" rx="10" fill="#0072bc"/>
+    <text x="600" y="393" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff" text-anchor="middle">NDPS</text>
+  </svg>
+</template>
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg-layout); font-family: var(--font-sans); display: flex; flex-direction: column; gap: 20px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .panel { border-radius: var(--radius-card-px); padding: 40px 32px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px var(--border-default); }
+  .panel img { width: 100%; max-width: 340px; height: auto; display: block; }
+  .on-light { background: var(--core-white); }
+  .on-dark { background: var(--core-navy-smart); box-shadow: none; }
+  .label { font-family: var(--font-meta); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div>
+      <div class="label">On light</div>
+      <div class="panel on-light"><img src="../assets/ndps-logo-on-light.png" alt="NTT DATA Payment Services logo on light background"></div>
+    </div>
+    <div>
+      <div class="label">On dark</div>
+      <div class="panel on-dark"><img src="../assets/ndps-logo-on-dark.png" alt="NTT DATA Payment Services logo on dark background"></div>
+    </div>
+  </div>
+</body>
+</html>

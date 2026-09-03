@@ -1,0 +1,27 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Core Palette" subtitle="Primitive brand + utility colors" -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 16px; background: var(--bg-container); font-family: var(--font-sans); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { width: 76px; }
+  .chip { height: 52px; border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); }
+  .label { font-size: 11px; color: var(--text-secondary); margin-top: 6px; }
+  .hex { font-size: 10px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="swatch"><div class="chip" style="background: var(--core-blue-150)"></div><div class="label">Future Blue 150</div><div class="hex">#005B96</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-blue-future)"></div><div class="label">Future Blue</div><div class="hex">#0072BC</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-blue-50)"></div><div class="label">Future Blue 50</div><div class="hex">#19A3FC</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-white); box-shadow: inset 0 0 0 1px var(--border-default)"></div><div class="label">White</div><div class="hex">#FFFFFF</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-gray-text)"></div><div class="label">Text Gray</div><div class="hex">#2E404D</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-gray-100)"></div><div class="label">Gray 100</div><div class="hex">#949494</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-gray-50)"></div><div class="label">Gray 50</div><div class="hex">#E8E8E8</div></div>
+  <div class="swatch"><div class="chip" style="background: var(--core-navy-smart)"></div><div class="label">Navy / Smart</div><div class="hex">#070F26</div></div>
+</div>
+</body>
+</html>

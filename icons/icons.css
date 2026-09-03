@@ -1,0 +1,6 @@
+/* Icon sizing tokens for plain-HTML use. Mirrors <Icon>'s size scale. */
+.ico { display: inline-flex; flex-shrink: 0; width: 20px; height: 20px; }
+.ico svg { display: block; }
+.ico--sm { width: 16px; height: 16px; }
+.ico--md { width: 20px; height: 20px; }
+.ico--lg { width: 24px; height: 24px; }

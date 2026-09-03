@@ -1,0 +1,22 @@
+<!-- @dsCard group="Spacing" viewport="700x200" name="Spacing Scale" subtitle="space/xxs → space/xxl, 4px–48px" -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 16px; background: var(--bg-container); font-family: var(--font-sans); }
+  .row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .bar { height: 14px; background: var(--color-primary); border-radius: 3px; }
+  .label { font-size: 11px; color: var(--text-secondary); width: 130px; font-family: var(--font-meta); }
+</style>
+</head>
+<body>
+  <div class="row"><div class="label">space/xxs — 4px</div><div class="bar" style="width: var(--space-xxs-px)"></div></div>
+  <div class="row"><div class="label">space/xs — 8px</div><div class="bar" style="width: var(--space-xs-px)"></div></div>
+  <div class="row"><div class="label">space/sm — 12px</div><div class="bar" style="width: var(--space-sm-px)"></div></div>
+  <div class="row"><div class="label">space/md — 16px</div><div class="bar" style="width: var(--space-md-px)"></div></div>
+  <div class="row"><div class="label">space/lg — 24px</div><div class="bar" style="width: var(--space-lg-px)"></div></div>
+  <div class="row"><div class="label">space/xl — 32px</div><div class="bar" style="width: var(--space-xl-px)"></div></div>
+  <div class="row"><div class="label">space/xxl — 48px</div><div class="bar" style="width: var(--space-xxl-px)"></div></div>
+</body>
+</html>

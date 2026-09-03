@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  doc-page:not(:defined){visibility:hidden}
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  * { animation-delay: -99s !important; animation-duration: .001s !important; animation-iteration-count: 1 !important; animation-fill-mode: both !important; animation-play-state: running !important; transition-duration: 0s !important; }
+  .sheet { width: 960px; height: 720px; box-sizing: border-box; padding: 64px; font-family: var(--font-sans); display: flex; flex-direction: column; gap: 40px; background: var(--core-white); }
+  .head .title { font-family: var(--font-sans); font-size: 30px; font-weight: 700; color: var(--text-heading, #2e404d); margin: 0; }
+  .head .sub { font-family: var(--font-meta); font-size: 14px; color: var(--text-muted); margin: 8px 0 0; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
+  .panel { border-radius: var(--radius-card-px); padding: 48px 40px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px var(--border-default); }
+  .panel img { width: 100%; max-width: 340px; height: auto; display: block; }
+  .on-light { background: var(--core-white); }
+  .on-dark { background: var(--core-navy-smart); box-shadow: none; }
+  .label { font-family: var(--font-meta); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<doc-page orientation="landscape" content-width="960px" content-height="720px">
+  <div class="sheet">
+    <div class="head">
+      <h1 class="title">NTT DATA Payment Services — Logo</h1>
+      <p class="sub">On-light and on-dark lockups</p>
+    </div>
+    <div class="row">
+      <div>
+        <div class="label">On light</div>
+        <div class="panel on-light"><img src="../assets/ndps-logo-on-light.png" alt="NTT DATA Payment Services logo on light background"></div>
+      </div>
+      <div>
+        <div class="label">On dark</div>
+        <div class="panel on-dark"><img src="../assets/ndps-logo-on-dark.png" alt="NTT DATA Payment Services logo on dark background"></div>
+      </div>
+    </div>
+  </div>
+</doc-page>
+<script src="../doc-page.js"></script>
+</body>
+</html>
